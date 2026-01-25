@@ -1,0 +1,8 @@
+venv/
+Deduplication/venv/
+__pycache__/
+*.pyc
+.env
+*.db
+*.log
+AuditingApp/static/files/*
