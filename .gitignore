@@ -1,8 +1,16 @@
-venv/
-Deduplication/venv/
-__pycache__/
+# Python/Django
 *.pyc
+__pycache__/
+db.sqlite3
 .env
-*.db
-*.log
-AuditingApp/static/files/*
+
+# Keys
+keys/
+
+# IDEs / consoles
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
