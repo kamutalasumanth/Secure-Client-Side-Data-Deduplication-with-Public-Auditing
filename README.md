@@ -1,103 +1,137 @@
-🔐 Secure Client-Side Deduplication
-An academic prototype that demonstrates secure client-side deduplication of encrypted cloud data with public integrity auditing using a Third Party Auditor (TPA).
+# 🔐 Secure Client-Side Deduplication with Public Auditing
 
-This project is implemented as a Django-based web application (templates + server-side views) and is intended for learning, research, and academic evaluation, not production use.
+An academic prototype demonstrating secure client-side deduplication of encrypted cloud data with public integrity auditing using a Third Party Auditor (TPA).
 
-📖 Project Overview
-This project demonstrates an academic approach to:
+This project is implemented as a Django-based web application and is intended for academic learning, research, and evaluation purposes only.
 
-Client-side file chunking and encryption
-Secure deduplication of encrypted data
-Public integrity auditing using a Third Party Auditor (TPA)
-🧩 Architecture Summary
-Frontend:
+---
 
-Django templates (HTML/CSS)
-Backend:
+## 📖 Project Overview
+This system demonstrates a secure approach to cloud storage by performing deduplication at the client side before upload. Files are encrypted, checked for duplication, and securely stored while maintaining privacy. A Third Party Auditor (TPA) verifies integrity without accessing actual file contents.
 
-Python (Django view functions)
-Direct database access using pymysql
-Cryptographic operations using Paillier homomorphic encryption
-Storage:
+---
 
-Simulated cloud storage using local filesystem / FTP-style storage
-Uploaded files are stored under:
+## 🧩 Architecture Summary
 
-AuditingApp/static/files/
-✨ Main Features & Components
-🔐 User Authentication
+### 🖥️ Frontend
+- Django Templates (HTML, CSS)
 
-Manual user registration and login logic
-📤 File Upload & Deduplication
+### ⚙️ Backend
+- Python (Django Framework)
+- Server-side view logic
+- Database connectivity using PyMySQL
+- Cryptographic processing using Paillier Encryption
 
-Client-side file reading
-Duplicate detection before storage
-Base64 encoding of unique files
-Reduced storage footprint through deduplication
-🧾 Integrity Verification (TPA)
+### ☁️ Storage
+Simulated cloud storage using local filesystem:
 
-SHA-256 hash generation
-Public integrity verification via Third Party Auditor
-Hash comparison against stored metadata
-📥 File Download
+---
 
-Users can download original or deduplicated files
-Logical mapping between user uploads and stored data
-📊 Storage Comparison Graphs
+## ✨ Main Features & Components
 
-Visual comparison of:
+### 🔐 User Authentication
+- Manual user registration and login
+- Secure session handling
 
-Normal storage
-Deduplicated storage
-Generated using matplotlib and embedded as base64 images
+### 📤 File Upload & Deduplication
+- Client-side file processing
+- SHA-256 hash based duplicate detection
+- Storage optimization by avoiding redundant uploads
+- Base64 encoding for secure storage
 
-🔐 Cryptography
+### 🧾 Integrity Verification (TPA)
+- Public auditing using Third Party Auditor
+- Hash comparison with stored metadata
+- Integrity validation without exposing file data
 
-Paillier homomorphic encryption (phe library)
-Demonstrates secure operations on encrypted data
-🛠️ Requirements
+### 📥 File Download
+- Secure file retrieval
+- Logical mapping between uploaded and stored files
+
+### 📊 Storage Comparison Graphs
+Visual comparison between:
+- Normal storage usage
+- Deduplicated storage usage
+
+Graphs generated using **Matplotlib** and embedded dynamically.
+
+### 🔐 Cryptography
+- Paillier Homomorphic Encryption (`phe` library)
+- Demonstrates secure computation on encrypted data
+
+---
+
+## 🛠️ Requirements
+
 Ensure the following are installed:
 
-🐍 Python 3.8+
-🌐 Django (2.x / 3.x recommended)
-🗄️ MySQL / MariaDB
-📦 pip & virtualenv
-Python Libraries
+- 🐍 Python 3.8+
+- 🌐 Django (2.x / 3.x recommended)
+- 🗄️ MySQL / MariaDB
+- 📦 pip & virtualenv
+
+### Python Libraries
 django
 pymysql
 phe
 numpy
 matplotlib
-🚀 Quick Start (Development)
-1️⃣ Clone the Repository
-git clone https://github.com/Sid445/secure-client-side-deduplication.git
-cd secure-client-side-deduplication
-2️⃣ Create & Activate Virtual Environment
+
+---
+
+## 🚀 Quick Start (Development)
+
+### 1️⃣ Clone the Repository
+git clone <your-repository-link>
+cd project-folder
+
+### 2️⃣ Create & Activate Virtual Environment
 python -m venv .venv
-Linux / macOS
 
-source .venv/bin/activate
-Windows
-
+**Windows**
 .venv\Scripts\activate
-3️⃣ Install Dependencies
-pip install django pymysql phe numpy matplotlib
-📌 Recommendation: After verification, generate a requirements.txt:
 
+**Linux / macOS**
+source .venv/bin/activate
+
+### 3️⃣ Install Dependencies
+pip install django pymysql phe numpy matplotlib
+
+(Optional)
 pip freeze > requirements.txt
-4️⃣ Database Setup
-Start MySQL / MariaDB
-Create a database named auditing
-Use the schema below (or adapt to match the code)
-5️⃣ Prepare Static Storage
+
+### 4️⃣ Database Setup
+- Start MySQL / MariaDB
+- Create database named:
+-auditing
+- Update database credentials inside Django `settings.py`.
+
+### 5️⃣ Prepare Storage Directory
 mkdir -p AuditingApp/static/files
 Ensure write permissions are enabled.
 
-6️⃣ Run the Django Server
+### 6️⃣ Run the Server
 python manage.py runserver
-🌐 Open in browser:
 
-http://127.0.0.1:8000/AuditingApp/index.html
-📬 Contact
-Maintainer: kamutalasumanth 📌 Use GitHub Issues for bugs, questions, and improvements.
+Open in browser:
+http://127.0.0.1:8000/
 
+---
+
+## 📌 Project Outcome
+- Reduces redundant cloud storage usage
+- Maintains confidentiality of encrypted data
+- Enables trusted public auditing
+- Demonstrates real-world cloud security concepts
+
+---
+
+## ⚠️ Disclaimer
+This project is an academic implementation intended only for educational and research purposes and is not designed for production deployment.
+
+---
+
+## 📬 Maintainer
+**kamutalasumanth**
+
+For issues, improvements, or questions, please use GitHub Issues.
